@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Build nginx
+    docker_image:
+      path: ./nginx
+      name: dtest/nginx
+  - name: Build redis
+    docker_image:
+      path: ./redis
+      name: dtest/redis

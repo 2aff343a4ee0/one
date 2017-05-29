@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Run nginx
+    docker_container:
+      name: nginx
+      image: dtest/nginx
+      volumes:
+        - /home/dtest/nginx.conf:/etc/nginx/nginx.conf:ro
+        - /data/web:/usr/local/share/html:ro
+
+  - name: Run redis
+    docker_container:
+      name: redis
+      image: dtest/redis
+      volumes:
+        - /data/redis:/data
